@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Lifeline</title>
+ 
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 32 32%27%3E%3Crect width=%2732%27 height=%2732%27 rx=%278%27 fill=%27%23d62839%27/%3E%3Cpath d=%27M16 25s-9-5.5-9-12a5 5 0 0 1 9-3 5 5 0 0 1 9 3c0 6.500-9 12-9 12z%27 fill=%27white%27/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <div class="brand">
+      <svg width="30" height="30" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="8" fill="#d62839"/><path d="M16 25s-9-5.500-9-12a5 5 0 0 1 9-3 5 5 0 0 1 9 3c0 6.500-9 12-9 12z" fill="#fff"/></svg>
+      <span>Lifeline</span>
+    </div>
+    <button id="logout" class="link" hidden>Log out</button>
+  </header>
+
+  <main>
+    
+    <section id="auth">
+      <h1 id="authTitle">Welcome back</h1>
+      <form id="authForm">
+        <input id="name" placeholder="Full name" autocomplete="name" hidden>
+        <input id="email" type="email" placeholder="Email" autocomplete="email" required>
+        <input id="password" type="password" placeholder="Password" minlength="4" required>
+        <p id="authErr" class="err"></p>
+        <button id="authBtn" class="primary">Log in</button>
+      </form>
+      <p class="switch"><span id="switchTxt">New here?</span> <a href="#" id="switchLink">Sign up</a></p>
+      <p class="hint">Demo admin: admin@lifeline.app / admin123</p>
+    </section>
+
+    
+    <section id="home" hidden>
+      <p id="hi" class="hi"></p>
+      <div class="center">
+        <button id="sos" class="sos">Call<br>emergency<br>contact</button>
+      </div>
+      <div class="row">
+        <h2>My contacts</h2>
+        <button id="addBtn" class="small">+ Add contact</button>
+      </div>
+      <ul id="list" class="cards"></ul>
+    </section>
+
+    
+    <section id="admin" hidden>
+      <h2>All contacts</h2>
+      <p class="hint">Read-only view of every user's emergency contacts.</p>
+      <input id="search" placeholder="Search by name or phone">
+      <ul id="all" class="cards"></ul>
+    </section>
+  </main>
+
+  
+  <dialog id="formDlg">
+    <form id="contactForm">
+      <h2 id="fTitle">Add contact</h2>
+      <input id="cName" placeholder="Contact name" required>
+      <input id="cRel" placeholder="Relationship (e.g. Mother)" required>
+      <input id="cPhone" type="tel" placeholder="Phone, e.g. +234 801 234 5678" pattern="[0-9+ ]{7,20}" title="Use 7 to 20 digits. Spaces and + are allowed." required>
+      <input id="cNotes" placeholder="Notes (optional)">
+      <label class="check"><input id="cPrimary" type="checkbox"> Make this my primary contact</label>
+      <div class="btns">
+        <button type="button" id="cancel" class="ghost">Cancel</button>
+        <button class="primary">Save contact</button>
+      </div>
+    </form>
+  </dialog>
+
+  
+  <dialog id="callDlg">
+    <h2>Who do you want to call?</h2>
+    <div id="callList"></div>
+    <button id="closeCall" class="ghost full">Close</button>
+  </dialog>
+
+  <script src="script.js"></script>
+</body>
+</html>

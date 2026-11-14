@@ -1,0 +1,104 @@
+:root{
+    --ink:#14213d; --red:#d62839; --red-dark:#a81e2c; --paper:#f7f8fa;
+    --white:#fff; --grey:#5b6577; --line:#dde2ea;
+  }
+  *{box-sizing:border-box;margin:0}
+  body{
+    font-family:"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    background:var(--paper);color:var(--ink);
+    max-width:480px;margin:0 auto;min-height:100vh;
+  }
+  header{
+    display:flex;justify-content:space-between;align-items:center;
+    padding:14px 18px;background:var(--white);border-bottom:1px solid var(--line);
+  }
+  .brand{display:flex;align-items:center;gap:10px;font-weight:700;font-size:1.2rem}
+  main{padding:20px 18px 40px}
+  h1{font-size:1.6rem;margin-bottom:16px}
+  h2{font-size:1.1rem}
+  .hint,small{color:var(--grey);font-size:.85rem}
+  .hint{margin-top:12px}
+  .hi{color:var(--grey)}
+  
+  input{
+    width:100%;padding:13px 14px;margin-bottom:10px;font:inherit;
+    border:1px solid var(--line);border-radius:10px;background:var(--white);
+  }
+  input:focus,button:focus-visible,a:focus-visible{outline:3px solid #8fb3ff;outline-offset:2px}
+  .err{color:var(--red-dark);min-height:1.2em;margin-bottom:6px;font-size:.9rem}
+  .switch{margin-top:14px;text-align:center}
+  a{color:var(--red-dark);font-weight:600}
+  
+  button{font:inherit;cursor:pointer}
+  .primary{
+    width:100%;padding:14px;border:0;border-radius:10px;
+    background:var(--ink);color:var(--white);font-weight:600;
+  }
+  .ghost{padding:14px;border:1px solid var(--line);border-radius:10px;background:var(--white);color:var(--ink)}
+  .full{width:100%;margin-top:10px}
+  .link{background:none;border:0;color:var(--grey);text-decoration:underline}
+  .small{padding:9px 14px;border:0;border-radius:20px;background:var(--ink);color:var(--white);font-size:.9rem}
+  
+ 
+  .center{display:flex;justify-content:center;align-items:center;min-height:52vh}
+  .sos{
+    width:min(72vw,280px);aspect-ratio:1;border:0;border-radius:50%;
+    background:var(--red);color:var(--white);
+    font-size:1.5rem;font-weight:800;line-height:1.25;
+    box-shadow:0 0 0 14px #d6283922,0 0 0 30px #d628390f;
+    animation:pulse 2.4s ease-in-out infinite;
+    transition:transform .15s ease,background .15s ease;
+  }
+  .sos:active{background:var(--red-dark);transform:scale(.97)}
+  
+  .row{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
+  .cards{list-style:none;padding:0}
+  .cards li{
+    display:flex;justify-content:space-between;gap:10px;align-items:center;
+    padding:14px;margin-bottom:10px;background:var(--white);
+    border:1px solid var(--line);border-radius:12px;
+  }
+  .tag{background:#d628391a;color:var(--red-dark);border-radius:6px;padding:2px 7px;font-size:.75rem;font-weight:600}
+  .acts{display:flex;flex-direction:column;gap:6px}
+  .acts button{padding:6px 12px;border:1px solid var(--line);border-radius:8px;background:var(--white);font-size:.85rem}
+  .empty{color:var(--grey);justify-content:center!important}
+  .call{padding:9px 16px;border-radius:20px;background:var(--red);color:var(--white);text-decoration:none}
+  
+  dialog{
+    width:min(92vw,440px);border:0;border-radius:16px;padding:20px;
+    margin:auto;color:var(--ink);
+  }
+  dialog::backdrop{background:#14213d99}
+  dialog h2{margin-bottom:14px}
+  .check{display:flex;align-items:center;gap:10px;margin:4px 0 16px;font-size:.95rem}
+  .check input{width:auto;margin:0}
+  .btns{display:flex;gap:10px}
+  .btns .primary{flex:1}
+  .callbtn{
+    display:flex;flex-direction:column;gap:2px;padding:16px;margin-bottom:10px;
+    border-radius:12px;background:var(--red);color:var(--white);text-decoration:none;font-weight:400;
+  }
+  .callbtn b{font-size:1.1rem}
+  .callbtn small{color:#ffe3e6}
+  
+
+  @keyframes pulse{
+    0%,100%{box-shadow:0 0 0 14px #d6283922,0 0 0 30px #d628390f}
+    50%{box-shadow:0 0 0 22px #d6283933,0 0 0 44px #d6283908}
+  }
+  @keyframes pop{
+    from{opacity:0;transform:translateY(24px)}
+    to{opacity:1;transform:none}
+  }
+  @keyframes fade{from{opacity:0}to{opacity:1}}
+  @keyframes slidein{
+    from{opacity:0;transform:translateX(-24px)}
+    to{opacity:1;transform:none}
+  }
+  dialog[open]{animation:pop .28s ease-out}
+  dialog[open]::backdrop{animation:fade .28s ease-out}
+  .cards li.new{animation:slidein .4s ease-out}
+  
+  @media (prefers-reduced-motion:reduce){
+    .sos,dialog[open],dialog[open]::backdrop,.cards li.new{animation:none}
+  }
